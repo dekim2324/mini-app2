@@ -3,3 +3,30 @@
     margin: 0;
     padding: 0;
 }
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Register */
+.form-container {
+    max-width: 500px;
+    margin: 4rem auto;
+    padding: 0 2rem;
+}
+.form-container h1 {
+    text-align: center;
+}
+.form-group {
+    margin: 1.2rem 0;
+}
+
+input[type='text'],
+input[type='email'],
+input[type='password'] {
+    display: block;
+    width: 100%;
+    padding: 0.4rem;
+    font-size: 1.2rem;
+    border: 1px solid #ccc;
+}
