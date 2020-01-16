@@ -4,12 +4,14 @@ import './App.css';
 
 import Home from './components/pages/Home';
 import About from './components/pages/About';
-import Register from './auth/Register';
-import Login from './auth/Login';
+import Register from './components/auth/Register';
+import Login from './components/auth/Login';
+import Navbar from './components/layouts/Navbar';
 
 const App = () => {
   return (
     <Router >
+      <Navbar />
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/about" component={About} />
