@@ -69,3 +69,9 @@ input[type='password'] {
     appearance: none;
     padding: 0.4rem 1rem;
 }
+
+/* Alert */
+.alert {
+    max-width: 500px;
+    margin: 2rem auto;
+}

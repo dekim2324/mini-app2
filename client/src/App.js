@@ -7,11 +7,13 @@ import About from './components/pages/About';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
 import Navbar from './components/layouts/Navbar';
+import Alert from './components/layouts/Alert';
 
 const App = () => {
   return (
     <Router >
       <Navbar />
+      <Alert />
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/about" component={About} />

@@ -1,6 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import { setAlert } from '../../actions/actions';
 
-const Signup = () => {
+const Register = props => {
     const [user, setUser] = useState({
         name: '',
         email: '',
@@ -16,6 +18,15 @@ const Signup = () => {
     const onSubmit = e => {
         e.preventDefault();
         console.log(user);
+
+
+        if(password !== password2) {
+            // dispatch action
+            props.setAlert()
+        } else {
+            // axios.post()
+        }
+
         setUser({
             name: '',
             email: '',
@@ -55,4 +66,12 @@ const Signup = () => {
     )
 }
 
-export default Signup;
+const mapStateToProps = state => {
+    return {
+        alertStatus: state
+    }
+}
+const mapDispatchToProps = {
+    setAlert
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Register)
