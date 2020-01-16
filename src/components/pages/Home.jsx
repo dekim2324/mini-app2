@@ -1,9 +1,10 @@
-import React from 'react'
+import React from 'react';
+import Signup from '../logins/Signup';
 
 const Home = () => {
     return (
         <div>
-            Home
+            <Signup/>
         </div>
     )
 }
