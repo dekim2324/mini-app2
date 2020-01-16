@@ -4,3 +4,9 @@ export const setAlert = () => {
         payload: true
     }
 };
+export const clearAlert = () => {
+    return {
+        type: 'CLEAR_ALERT',
+        payload: false
+    }
+}

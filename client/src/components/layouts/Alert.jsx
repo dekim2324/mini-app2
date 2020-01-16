@@ -1,11 +1,30 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { clearAlert } from '../../actions/actions';
 
-const Alert = () => {
-    return (
-        <div className='alert'>
-            Alert
-        </div>
-    )
+const Alert = props => {
+    if(props.alertStatus) {
+        setTimeout(() => props.clearAlert(), 5000)
+        return (
+            <div className='alert'>
+               <i className="fas fa-exclamation-circle"></i>{' '}
+               Passwords Do Not Match{' '}
+            </div>
+        )
+    } else {
+        return (
+            <div></div>
+        )
+    }
 }
 
-export default Alert;
+const mapStateToProps = state => {
+    return {
+        alertStatus: state
+    }
+};
+const mapDispatchToProps = {
+    clearAlert
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Alert);
