@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
+const bcrypt = require('bcrypt');
 
 //@route   POST api/users
 //@desc    Register a user
@@ -16,15 +17,19 @@ router.post('/', async (req, res) => {
         
             // else create a Model & save
             user = new User(req.body);
+
+            // Salt & Hash password
+            const salt = await bcrypt.genSalt(7);
+            user.password = await bcrypt.hash(password, salt);
+
             await user.save()
-            res.json({ msg: 'succesfully saved' })
+            res.json({ msg: `new password: ${user.password}` });
             
     } catch (err) {
-        console.error(err.message);
+        console.error('error with authentication', err.message);
         res.status(500).send('Server Error')
     }
 
-    // res.json({ msg: 'sent' })
 })
 
 
