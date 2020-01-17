@@ -10,7 +10,8 @@ const registerUser = async userData => {
 
     try {
         const res = await axios.post('/api/users', userData, config);
-        console.log(res.data)
+        console.log('this is after result', res)
+        console.log('this is after result', res.data)
     } catch (err) {
         console.error(err.message)
     }
