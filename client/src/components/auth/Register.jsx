@@ -18,8 +18,6 @@ const Register = props => {
 
     const onSubmit = e => {
         e.preventDefault();
-        console.log(user);
-
 
         if(password !== password2) {
             // dispatch action
