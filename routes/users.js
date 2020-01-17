@@ -8,27 +8,20 @@ const User = require('../models/User');
 router.post('/', async (req, res) => {
     const { name, email, password } = req.body;
 
-    // var newUser = new User(user);
-    // newUser.save((err) => {
-    //     if(err) console.error(err);
-    // })
-
     try {
         let user = await User.findOne({ 'email': email });
 
+            // check if email already exists in DB
         if(user) res.status(400).json({ msg: 'user already exists!' })
         
-            // create a Model
+            // else create a Model & save
             user = new User(req.body);
-            await user.save(err => {
-                if(err) console.error(err)
-            })
+            await user.save()
             res.json({ msg: 'succesfully saved' })
             
-        
-
     } catch (err) {
-        if(err) console.error(err.message)
+        console.error(err.message);
+        res.status(500).send('Server Error')
     }
 
     // res.json({ msg: 'sent' })
