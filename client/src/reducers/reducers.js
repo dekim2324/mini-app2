@@ -1,3 +1,4 @@
+import { combineReducers } from 'redux';
 
 const alertStatus = (state = false, action) => {
     switch(action.type) {
@@ -10,4 +11,7 @@ const alertStatus = (state = false, action) => {
     }
 }
 
-export default alertStatus;
+// export default alertStatus;
+export default combineReducers({
+    alertStatus
+})

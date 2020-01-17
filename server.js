@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 
 // Init middleware
-app.use(express.json());
+app.use(express.json({ extended: false }));
 
 app.get('/', (req, res) => {
     res.json({ msg: 'Welcome to Photo Keeper Page!'})

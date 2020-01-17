@@ -20,7 +20,7 @@ const Alert = props => {
 
 const mapStateToProps = state => {
     return {
-        alertStatus: state
+        alertStatus: state.alertStatus
     }
 };
 const mapDispatchToProps = {

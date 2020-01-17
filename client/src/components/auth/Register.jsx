@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { setAlert } from '../../actions/actions';
+import registerUser from './registerUser';
 
 const Register = props => {
     const [user, setUser] = useState({
@@ -24,7 +25,7 @@ const Register = props => {
             // dispatch action
             props.setAlert()
         } else {
-            // axios.post()
+            registerUser(user)
         }
 
         setUser({
@@ -68,7 +69,7 @@ const Register = props => {
 
 const mapStateToProps = state => {
     return {
-        alertStatus: state
+        registerUser: state.registerUser
     }
 }
 const mapDispatchToProps = {
