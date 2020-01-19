@@ -1,7 +1,7 @@
-export const setAlert = () => {
+export const setAlert = data => {
     return {
         type: 'SET_ALERT',
-        payload: true
+        payload: data
     }
 };
 export const clearAlert = () => {
@@ -10,3 +10,4 @@ export const clearAlert = () => {
         payload: false
     }
 }
+

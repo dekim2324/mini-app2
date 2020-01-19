@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
-import { setAlert } from '../../actions/actions';
 import registerUser from './registerUser';
 
-const Register = props => {
+import { setAlert } from '../../actions/actions';
+import { useDispatch, useSelector } from 'react-redux';
+
+const Register = () => {
+    const dispatch = useDispatch();
+    const alertUser = useSelector(state => state.alertReducer);
+
     const [user, setUser] = useState({
         name: '',
         email: '',
@@ -21,7 +25,8 @@ const Register = props => {
 
         if(password !== password2) {
             // dispatch action
-            props.setAlert()
+            // props.setAlert()
+            dispatch(setAlert('passwords do not match'));
         } else {
             registerUser(user)
         }
@@ -65,12 +70,4 @@ const Register = props => {
     )
 }
 
-const mapStateToProps = state => {
-    return {
-        registerUser: state.registerUser
-    }
-}
-const mapDispatchToProps = {
-    setAlert
-}
-export default connect(mapStateToProps, mapDispatchToProps)(Register)
+export default Register;

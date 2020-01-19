@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 
-const alertStatus = (state = false, action) => {
+const alertReducer = (state = false, action) => {
     switch(action.type) {
         case 'SET_ALERT':
             return action.payload
@@ -11,7 +11,10 @@ const alertStatus = (state = false, action) => {
     }
 }
 
-// export default alertStatus;
-export default combineReducers({
-    alertStatus
-})
+export default alertReducer;
+
+// // export default alertStatus;
+// export default combineReducers({
+//     alertStatus,
+//     emailStatus
+// })
