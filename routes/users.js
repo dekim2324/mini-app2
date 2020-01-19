@@ -23,8 +23,12 @@ router.post('/', async (req, res) => {
             const salt = await bcrypt.genSalt(7);
             user.password = await bcrypt.hash(password, salt);
 
+            // save user registration to the database
             await user.save()
-            res.json({ msg: `new password: ${user.password}` });
+            // res.json({ msg: `new password: ${user.password}` });
+
+            //JSON WEB TOKEN
+            // jwt.sign()
             
     } catch (err) {
         console.error('error with authentication', err.message);

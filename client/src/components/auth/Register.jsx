@@ -39,7 +39,7 @@ const Register = () => {
                 const res = await axios.post('/api/users', user, config);
         
             } catch (err) {
-                console.error(err.message)
+                console.error(err.message);            
                 // If email already exists, it will be caught here:
                 dispatch(setAlert('user already exists'))
             }
