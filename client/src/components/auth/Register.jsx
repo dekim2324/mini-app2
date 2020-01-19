@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import registerUser from './registerUser';
+import axios from 'axios';
+// import registerUser from './registerUser';
 
 import { setAlert } from '../../actions/actions';
 import { useDispatch, useSelector } from 'react-redux';
@@ -20,15 +21,28 @@ const Register = () => {
         setUser({ ...user, [e.target.name]: e.target.value })
     }
 
-    const onSubmit = e => {
+    const onSubmit = async e => {
         e.preventDefault();
 
         if(password !== password2) {
             // dispatch action
-            // props.setAlert()
             dispatch(setAlert('passwords do not match'));
         } else {
-            registerUser(user)
+            // registerUser(user)
+            const config = {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            };
+        
+            try {
+                const res = await axios.post('/api/users', user, config);
+        
+            } catch (err) {
+                console.error(err.message)
+                // If email already exists, it will be caught here:
+                dispatch(setAlert('user already exists'))
+            }
         }
 
         setUser({

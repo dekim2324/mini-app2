@@ -1,8 +1,10 @@
 import axios from 'axios';
-import { connect } from 'react-redux';
-import { emailExists } from '../../actions/actions';
+import { setAlert } from '../../actions/actions';
+
+import { useDispatch, useSelector } from 'react-redux';
 
 const registerUser = async userData => {
+    const useDispatch = useDispatch();
     
     const config = {
         headers: {
@@ -19,11 +21,5 @@ const registerUser = async userData => {
 
     }
 }
-
-// const mapStateToProps = state => {
-//     return {
-//         emailStatus: state.emailStatus
-//     }
-// }
 
 export default registerUser;

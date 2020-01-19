@@ -14,6 +14,14 @@ const Alert = () => {
                Passwords Do Not Match{' '}
             </div>
         )
+    } else if(alert && alert === 'user already exists') {
+        setTimeout(() => dispatch(clearAlert()), 5000)
+        return (
+            <div className='alert'>
+               <i className="fas fa-exclamation-circle"></i>{' '}
+               User already exists{' '}
+            </div>
+        )
     } else {
         return (
             <div></div>
