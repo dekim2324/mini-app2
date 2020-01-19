@@ -3,11 +3,10 @@ import axios from 'axios';
 // import registerUser from './registerUser';
 
 import { setAlert } from '../../actions/actions';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 const Register = () => {
     const dispatch = useDispatch();
-    const alertUser = useSelector(state => state.alertReducer);
 
     const [user, setUser] = useState({
         name: '',
@@ -36,7 +35,7 @@ const Register = () => {
             };
         
             try {
-                const res = await axios.post('/api/users', user, config);
+                await axios.post('/api/users', user, config);
         
             } catch (err) {
                 console.error(err.message);            

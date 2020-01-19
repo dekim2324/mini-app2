@@ -1,5 +1,3 @@
-import { combineReducers } from 'redux';
-
 const alertReducer = (state = false, action) => {
     switch(action.type) {
         case 'SET_ALERT':
@@ -13,8 +11,3 @@ const alertReducer = (state = false, action) => {
 
 export default alertReducer;
 
-// // export default alertStatus;
-// export default combineReducers({
-//     alertStatus,
-//     emailStatus
-// })
