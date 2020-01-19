@@ -11,3 +11,16 @@ export const clearAlert = () => {
     }
 }
 
+export const registerUser = data => {
+    return {
+        type: 'REGISTER_SUCCESS',
+        payload: data
+    }
+}
+
+export const authenticateUser = () => {
+    return {
+        type: 'IS_AUTHENTICATED',
+        payload: true
+    }
+}

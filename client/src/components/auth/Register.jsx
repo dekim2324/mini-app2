@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-// import registerUser from './registerUser';
 
-import { setAlert } from '../../actions/actions';
-import { useDispatch } from 'react-redux';
+import { setAlert, registerUser, authenticateUser } from '../../actions/actions';
+import { useDispatch, useSelector } from 'react-redux';
 
 const Register = () => {
+
     const dispatch = useDispatch();
 
     const [user, setUser] = useState({
@@ -15,6 +15,16 @@ const Register = () => {
         password2: ''
     });
     const { name, email, password, password2 } = user;
+
+    const auth = useSelector(state => state.authReducer);
+
+    useEffect(() => {
+        if(auth.token) {
+            //if token, then stay authenicated
+            dispatch(authenticateUser());
+        }
+    }, [])
+
 
     const onChange = e => {
         setUser({ ...user, [e.target.name]: e.target.value })
@@ -35,7 +45,10 @@ const Register = () => {
             };
         
             try {
-                await axios.post('/api/users', user, config);
+                const res = await axios.post('/api/users', user, config);
+
+                // Dispatch action to set state: token, authenticated
+                dispatch(registerUser(res.data));
         
             } catch (err) {
                 console.error(err.message);            
