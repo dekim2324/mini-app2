@@ -4,6 +4,10 @@ const todosReducer = (state = [], action) => {
             return [...state, action.payload]
         case 'ALL_TODOS':
             return [...action.payload]
+        case 'DELETE_TODO':
+            return state.filter(todo => {
+                return todo !== action.payload
+            })
         default:
             return state
     }

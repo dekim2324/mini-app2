@@ -32,9 +32,9 @@ const Todos = () => {
     const onSubmit = async e => {
         e.preventDefault();
 
-        dispatch(addTodo(todo1))
-        // save to database
+        dispatch(addTodo(todo1));
         
+        // save to database
         const config = {
             headers: {
                 'Content-Type': 'application/json'

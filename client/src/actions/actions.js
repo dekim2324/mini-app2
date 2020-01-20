@@ -38,3 +38,10 @@ export const getTodos = todos => {
         payload: todos
     }
 }
+
+export const deleteTodo = todo => {
+    return {
+        type: 'DELETE_TODO',
+        payload: todo
+    }
+}

@@ -39,7 +39,15 @@ router.post('/', async (req, res) => {
 //@desc    Delete todo item
 //@access  Private
 router.delete('/', async (req, res) => {
+
+    try {
+        await Todo.deleteOne(req.body);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server Error');
+    }
     
+
 })
 
 
