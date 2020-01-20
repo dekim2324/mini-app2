@@ -18,9 +18,23 @@ export const registerUser = data => {
     }
 }
 
-export const authenticateUser = () => {
+export const loadUser = () => {
     return {
-        type: 'IS_AUTHENTICATED',
+        type: 'LOAD_USER',
         payload: true
+    }
+}
+
+export const addTodo = todo => {
+    return {
+        type: 'ADD_TODO',
+        payload: todo
+    }
+};
+
+export const getTodos = todos => {
+    return {
+        type: 'ALL_TODOS',
+        payload: todos
     }
 }

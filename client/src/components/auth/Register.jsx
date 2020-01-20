@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 
-import { setAlert, registerUser, authenticateUser } from '../../actions/actions';
-import { useDispatch, useSelector } from 'react-redux';
+import { setAlert, registerUser } from '../../actions/actions';
+import { useDispatch } from 'react-redux';
 
 const Register = () => {
 
@@ -15,16 +15,6 @@ const Register = () => {
         password2: ''
     });
     const { name, email, password, password2 } = user;
-
-    const auth = useSelector(state => state.authReducer);
-
-    useEffect(() => {
-        if(auth.token) {
-            //if token, then stay authenicated
-            dispatch(authenticateUser());
-        }
-    }, [])
-
 
     const onChange = e => {
         setUser({ ...user, [e.target.name]: e.target.value })

@@ -14,6 +14,7 @@ app.get('/', (req, res) => {
 
 // Define Routes
 app.use('/api/users', require('./routes/users'));
+app.use('/api/todos', require('./routes/todos'));
 
 const PORT = process.env.PORT || 3007;
 app.listen(PORT, () => {

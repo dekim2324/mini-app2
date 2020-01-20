@@ -7,7 +7,7 @@ const authReducer = (state, action) => {
                 ...action.payload,
                 isAuthenticated: true,
             }
-        case 'IS_AUTHENTICATED':
+        case 'LOAD_USER':
             return {
                 ...state,
                 isAuthenticated: true
