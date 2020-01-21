@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.css';
+import { useSelector, useDispatch } from 'react-redux';
+import { loadUser } from './actions/actions';
 
 import Home from './components/pages/Home';
 import About from './components/pages/About';
@@ -10,6 +12,16 @@ import Navbar from './components/layouts/Navbar';
 import Alert from './components/layouts/Alert';
 
 const App = () => {
+  const dispatch = useDispatch();
+  const token = useSelector(state => state.authReducer.token);
+
+  useEffect(() => {
+    if(token) {
+      // alert('token available')
+      dispatch(loadUser());
+    }
+  }, [])
+
   return (
     <Router >
       <Navbar />
