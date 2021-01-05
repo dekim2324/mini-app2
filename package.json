@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/dekim2324/mini-app2#readme",
   "dependencies": {
-    "axios": "^0.19.1",
+    "axios": "^0.21.1",
     "bcrypt": "^3.0.7",
     "config": "^3.2.5",
     "express": "^4.17.1",
